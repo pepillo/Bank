@@ -1,0 +1,362 @@
+﻿/*Jose L Delgado Ruiz - Bank Theme V1 Sep 2018*/
+
+/*JDR: Add Font - Classic Look & Feel */
+@font-face {
+    font-family: GTWalsheimProRegular;
+    src: url('../fonts/GT-Walsheim-Pro-Regular.eot');
+    src: url('../fonts/GT-Walsheim-Pro-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/GT-Walsheim-Pro-Regular.woff') format('woff'),
+         url('../fonts/GT-Walsheim-Pro-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: GTWalsheimProBold;
+    src: url('../fonts/GT-Walsheim-Pro-Bold.eot');
+    src: url('../fonts/GT-Walsheim-Pro-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/GT-Walsheim-Pro-Bold.woff') format('woff'), url('../fonts/GT-Walsheim-Pro-Bold.ttf') format('truetype');
+}
+
+/************************** Spesific Elements  ***************************/
+/*Set Sign In yellow underline, used pseudo element to avoide issu with border*/
+#loginLink:after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid rgb(255, 237, 0);
+}
+
+/************************** Format Elements  ***************************/
+.google-maps {
+    max-height: 250px;
+}
+
+.img-grayscale {
+    filter: grayscale(100%);
+}
+
+.gray-box {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #f2f2f2;
+}
+
+.white-box {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #FFF;
+}
+
+.form-gray-box {
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+/************************** Bank Special class  ***************************/
+.bank-yellow-btn {
+    border-radius: 0px;
+    color: black;
+    background-color: #FEED09;
+    font-weight: bold;
+}
+
+.bank-yellow-btn:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.bank-header {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.bank-title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.bank-bank-body-content {
+    padding: 30px;
+}
+
+/************************** Global Elements  ***************************/
+body {
+    /*Override bootstrap css*/
+    padding-top: 0px;
+}
+
+/************************** Table Elements  ***************************/
+.table-gray tr th:first-child {
+    min-width: 15px;
+}
+
+.table-gray tr th {
+    color: #1e1e1e;
+    text-align: center;
+    background-color: #ddd;
+    font-weight: bolder;
+}
+
+.render-body {
+    min-height: 300px;
+}
+
+/************************** Start Navbar ***************************/
+.navbar {
+    /*Override bootstrap css*/
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.navbar > .container {
+    border-bottom: 2px solid #f1eeee;
+}
+
+.navbar-logo {
+    float: left;
+    height:45px;
+    margin-right: 20px;
+    padding-top: 5px;
+}
+
+/*Text after logo in navbar*/
+.navbar-brand {
+    font-family: GTWalsheimProBold;
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/*Remove Decorations from other css*/
+a.navbar-brand:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+/*Apply correct padding to conform to specs*/
+.nav > li > a {
+    font-family: GTWalsheimProBold;
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/*Remove Decorations from other css*/
+.nav > li > a:hover,
+.nav > li > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+/*Seperate Sign In (or any other special link) futher from other links*/
+.nav.navbar-nav.navbar-right {
+    padding-left: 40px;
+    padding-right: 30px;
+}
+
+/*Add icons in navbar top-right*/
+.nav-icons {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav-icons > li {
+    display: inline-block;
+}
+
+.nav-icons > li > a {
+    float: right !important;
+    padding: 5px 0px;
+    margin: 0px;
+    color: #000000;
+    font-size: 28px;
+}
+
+.navbar-toggle {
+    background-color: #333333 !important;
+}
+
+.icon-bar {
+    /*Burger Icon for mobile*/
+    background-color: #e1e1e1 !important;
+}
+
+/************************** Site Footer ***************************/
+.fdic_img {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+footer {
+    margin-top: 25px;
+    color: white;
+    background-color: black;
+    font-family: GTWalsheimProRegular;
+}
+
+footer h2 {
+    font-weight: bold;
+}
+
+footer > div {
+    padding: 20px;
+}
+
+footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li {
+    line-height: 200%;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(255, 237, 0);
+}
+
+footer ul li a:hover {
+    text-decoration: none;
+    color:white;
+}
+
+/************************** Loan Index Apply for loan page***************************/
+.loan-options-container {
+    padding: 10px;
+}
+
+.loan-options-container > div {
+    padding: 30PX;
+}
+
+.loan-options-container > div > .loan-options-text {
+    min-height: 80px;
+}
+
+.loan-options-img {
+    filter: grayscale(100%);
+    height: 165px;
+    width: 270px;
+}
+
+.loan-options-title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.loan-options-text {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.loan-banner {
+    padding: 55px 40px;
+}
+
+
+/************************** Contact Us Form Style***************************/
+.contact-form > div > * {
+    width: 100%;
+    min-width: 100% !important;
+}
+
+.contact-form > div:not(:last-child) {
+    padding-bottom: 12px;
+}
+
+.contact-form > div > input, textarea {
+    padding: 10px;
+    background-color: #f1eeee;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #808080;
+}
+
+.contact-container {
+    padding:60px;
+}
+
+.contact-container > div:first-child > .bank-header {
+    padding-bottom: 30px;
+}
+
+.contact-container > div:first-child > .bank-title {
+    padding-bottom: 10px;
+}
+
+.contact-container > div:first-child > address {
+    padding-bottom: 30px;
+}
+
+.contact-container > div:first-child > address:not(:last-child) {
+    border-bottom: 1px solid #f1eeee;
+}
+
+/************************** Login Form Style***************************/
+.login .login-input {
+    padding: 10px;
+    background-color: #f1eeee;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #808080;
+    min-width: 100% !important;
+}
+
+.login span {
+    border-color: #808080;
+}
+
+.login-submit-btn {
+    padding: 10px 50px;
+}
+
+.login-register-btn {
+    padding: 10px 50px;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+}
+
+/************************** Form Style***************************/
+.form-horizontal input, .form-horizontal textarea, .form-horizontal select {
+    /*JDR: Set all input to max width*/
+    min-width: 100% !important;
+}
+
+/*JDR: FOR Currency format IMPORTANT*/
+input.currency {
+    text-align: right;
+    padding-right: 15px;
+}
+
+.input-group .form-control {
+    float: none;
+}
+
+.input-group .input-buttons {
+    position: relative;
+    z-index: 3;
+}
+
+/************************** Not Sure What To Do With ***************************/
+.row.vertical-divide [class*='col-']:not(:last-child):after {
+    background: #e0e0e0;
+    width: 1px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    min-height: 170px;
+    /*max-height: 150px;*/
+}

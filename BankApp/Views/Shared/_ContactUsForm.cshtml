@@ -1,0 +1,31 @@
+﻿@{
+    var FormSubmited = ViewBag.FormSubmited;
+    var FormNotification = ViewBag.FormNotification;
+}
+
+<div class="loan-options-title text-center">What can we assist with?</div>
+
+@if (FormSubmited == 1)
+{
+    <div class="form-group">@FormNotification</div>
+}
+
+<div></div>
+
+<form class="contact-form" id="ContactUsForm" action="/Home/Contact" method="Post">
+    <div class="">
+        <input type="text" name="FormName" value="" placeholder="Name" />
+    </div>
+    <div class="">
+        <input type="text" name="FormEmail" value="" placeholder="E-mail" />
+    </div>
+    <div class="">
+        <input type="text" name="FormPhone" value="" placeholder="Phone Number" />
+    </div>
+    <div class="">
+        <textarea name="FormMessage" placeholder="Message" rows="5" cols="21"></textarea>
+    </div>
+    <div class="">
+        <button class="btn bank-yellow-btn" type="submit">Get a Call Back</button>
+    </div>
+</form>

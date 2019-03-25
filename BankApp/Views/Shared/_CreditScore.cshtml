@@ -1,0 +1,47 @@
+﻿
+@{ 
+    int Score = (int)ViewData["Score"];
+
+    var ScoreColor = "red";
+
+    if      (Score <= 300) { ScoreColor = "red"; }
+    else if (Score <= 500) { ScoreColor = "orange"; }
+    else if (Score <= 600) { ScoreColor = "#b7b213"; }
+    else                   { ScoreColor = "green"; }
+}
+<svg viewBox="0 0 100 80" class="" style="max-height:200px;max-width:200px;">
+    <g>
+        <path d="M 10.187609691495148 68.73428882886321 A 44 44 0 0 1 40.15168157318339 7.116312843179813" stroke="#E1E7EB" fill="none" stroke-width="4" stroke-linecap="round"></path>
+
+        <path d="M 45.88425608935777 6.192915503745162 A 44 44 0 0 1 62.31904483262065 7.759721421232527" stroke="#E1E7EB" fill="none" stroke-width="4" stroke-linecap="round"></path>
+
+        <path d="M 67.77387663242357 9.749666964664904 A 44 44 0 0 1 81.35697639031021 19.133512806645328" stroke="#E1E7EB" fill="none" stroke-width="4" stroke-linecap="round"></path>
+
+        <path d="M 85.1483635955568 23.531291369722304 A 44 44 0 0 1 91.59754139263299 35.65968793616452" stroke="#E1E7EB" fill="none" stroke-width="4" stroke-linecap="round"></path>
+
+        <path d="M 93.1236326880653 41.26201946758718 A 44 44 0 0 1 89.81239030850486 68.73428882886319" stroke="#E1E7EB" fill="none" stroke-width="4" stroke-linecap="round"></path>
+    </g>
+
+    <g>
+        <path d="M 10.187609691495148 68.73428882886321 A 44 44 0 0 1 40.15168157318339 7.116312843179813" stroke="@ScoreColor" fill="none" stroke-width="4" stroke-linecap="round"></path>
+
+        @if (Score > 300) {
+            <path d="M 45.88425608935777 6.192915503745162 A 44 44 0 0 1 62.31904483262065 7.759721421232527"  stroke="@ScoreColor" fill="none" stroke-width="4" stroke-linecap="round"></path>
+        }
+
+        @if (Score > 500) {
+            <path d="M 67.77387663242357 9.749666964664904 A 44 44 0 0 1 81.35697639031021 19.133512806645328" stroke="@ScoreColor" fill="none" stroke-width="4" stroke-linecap="round"></path>
+        }
+
+        @if (Score > 600) {
+            <path d="M 85.1483635955568 23.531291369722304 A 44 44 0 0 1 91.59754139263299 35.65968793616452"  stroke="@ScoreColor" fill="none" stroke-width="4" stroke-linecap="round"></path>
+        }
+
+        @if (Score >= 800){
+            <path d="M 93.1236326880653 41.26201946758718 A 44 44 0 0 1 89.81239030850486 68.73428882886319"   stroke="@ScoreColor" fill="none" stroke-width="4" stroke-linecap="round"></path>
+        }
+    </g>
+
+    <text x="50" text-anchor="middle" y="54" font-size="28">@ViewData["Score"]</text>
+    <text x="50" text-anchor="middle" y="70" font-size="8">@ViewData["Company"]</text>
+</svg>

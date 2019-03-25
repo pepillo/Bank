@@ -1,0 +1,316 @@
+{
+    "PR": [
+        {
+            "position": 0,
+            "city": "Adjuntas"
+        },
+        {
+            "position": 1,
+            "city": "Aguada"
+        },
+        {
+            "position": 2,
+            "city": "Aguadilla"
+        },
+        {
+            "position": 3,
+            "city": "Aguas Buenas"
+        },
+        {
+            "position": 4,
+            "city": "Aibonito"
+        },
+        {
+            "position": 5,
+            "city": "Añasco"
+        },
+        {
+            "position": 6,
+            "city": "Arecibo"
+        },
+        {
+            "position": 7,
+            "city": "Arroyo"
+        },
+        {
+            "position": 8,
+            "city": "Barceloneta"
+        },
+        {
+            "position": 9,
+            "city": "Barranquitas"
+        },
+        {
+            "position": 10,
+            "city": "Bayamón"
+        },
+        {
+            "position": 11,
+            "city": "Cabo Rojo"
+        },
+        {
+            "position": 12,
+            "city": "Caguas"
+        },
+        {
+            "position": 13,
+            "city": "Camuy"
+        },
+        {
+            "position": 14,
+            "city": "Canóvanas"
+        },
+        {
+            "position": 15,
+            "city": "Carolina"
+        },
+        {
+            "position": 16,
+            "city": "Cataño"
+        },
+        {
+            "position": 17,
+            "city": "Cayey"
+        },
+        {
+            "position": 18,
+            "city": "Ceiba"
+        },
+        {
+            "position": 19,
+            "city": "Ciales"
+        },
+        {
+            "position": 20,
+            "city": "Cidra"
+        },
+        {
+            "position": 21,
+            "city": "Coamo"
+        },
+        {
+            "position": 22,
+            "city": "Comerío"
+        },
+        {
+            "position": 23,
+            "city": "Corozal"
+        },
+        {
+            "position": 24,
+            "city": "Culebra"
+        },
+        {
+            "position": 25,
+            "city": "Dorado"
+        },
+        {
+            "position": 26,
+            "city": "Fajardo"
+        },
+        {
+            "position": 27,
+            "city": "Florida"
+        },
+        {
+            "position": 28,
+            "city": "Guánica"
+        },
+        {
+            "position": 29,
+            "city": "Guayama"
+        },
+        {
+            "position": 30,
+            "city": "Guayanilla"
+        },
+        {
+            "position": 31,
+            "city": "Guaynabo"
+        },
+        {
+            "position": 32,
+            "city": "Gurabo"
+        },
+        {
+            "position": 33,
+            "city": "Hatillo"
+        },
+        {
+            "position": 34,
+            "city": "Hormigueros"
+        },
+        {
+            "position": 35,
+            "city": "Humacao"
+        },
+        {
+            "position": 36,
+            "city": "Isabela"
+        },
+        {
+            "position": 37,
+            "city": "Jayuya"
+        },
+        {
+            "position": 38,
+            "city": "Juana Díaz"
+        },
+        {
+            "position": 39,
+            "city": "Juncos"
+        },
+        {
+            "position": 40,
+            "city": "Lajas"
+        },
+        {
+            "position": 41,
+            "city": "Lares"
+        },
+        {
+            "position": 42,
+            "city": "Las Marías"
+        },
+        {
+            "position": 43,
+            "city": "Las Piedras"
+        },
+        {
+            "position": 44,
+            "city": "Loíza"
+        },
+        {
+            "position": 45,
+            "city": "Luquillo"
+        },
+        {
+            "position": 46,
+            "city": "Manatí"
+        },
+        {
+            "position": 47,
+            "city": "Maricao"
+        },
+        {
+            "position": 48,
+            "city": "Maunabo"
+        },
+        {
+            "position": 49,
+            "city": "Mayagüez"
+        },
+        {
+            "position": 50,
+            "city": "Moca"
+        },
+        {
+            "position": 51,
+            "city": "Morovis"
+        },
+        {
+            "position": 52,
+            "city": "Naguabo"
+        },
+        {
+            "position": 53,
+            "city": "Naranjito"
+        },
+        {
+            "position": 54,
+            "city": "Orocovis"
+        },
+        {
+            "position": 55,
+            "city": "Patillas"
+        },
+        {
+            "position": 56,
+            "city": "Peñuelas"
+        },
+        {
+            "position": 57,
+            "city": "Ponce"
+        },
+        {
+            "position": 58,
+            "city": "Quebradillas"
+        },
+        {
+            "position": 59,
+            "city": "Rincón"
+        },
+        {
+            "position": 60,
+            "city": "Río Grande"
+        },
+        {
+            "position": 61,
+            "city": "Sabana Grande"
+        },
+        {
+            "position": 62,
+            "city": "Salinas"
+        },
+        {
+            "position": 63,
+            "city": "San Germán"
+        },
+        {
+            "position": 64,
+            "city": "San Juan"
+        },
+        {
+            "position": 65,
+            "city": "San Lorenzo"
+        },
+        {
+            "position": 66,
+            "city": "San Sebastián"
+        },
+        {
+            "position": 67,
+            "city": "Santa Isabel"
+        },
+        {
+            "position": 68,
+            "city": "Toa Alta"
+        },
+        {
+            "position": 69,
+            "city": "Toa Baja"
+        },
+        {
+            "position": 70,
+            "city": "Trujillo Alto"
+        },
+        {
+            "position": 71,
+            "city": "Utuado"
+        },
+        {
+            "position": 72,
+            "city": "Vega Alta"
+        },
+        {
+            "position": 73,
+            "city": "Vega Baja"
+        },
+        {
+            "position": 74,
+            "city": "Vieques"
+        },
+        {
+            "position": 75,
+            "city": "Villalba"
+        },
+        {
+            "position": 76,
+            "city": "Yabucoa"
+        },
+        {
+            "position": 77,
+            "city": "Yaucoa"
+        }
+    ]
+}

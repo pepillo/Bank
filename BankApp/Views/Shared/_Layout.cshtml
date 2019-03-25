@@ -1,0 +1,147 @@
+﻿<!--JDR: Add this to referens static methods for UserAccount-->
+@using Bank.Models;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Bank</title>
+
+    <!--JDR: DataObject Css-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!--JDR: Remove navbar-inverse from class-->
+    <!--JDR: Remove navbar-fixed-top from class-->
+    <div class="navbar <!--navbar-inverse--> <!--navbar-fixed-top-->">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--JDR: Change Website banner name from navbar and add company logo-->
+                <!--@Html.ActionLink("Bank", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })-->
+                <a href="@Url.Action("Index", "Home")">
+                    <img class="navbar-logo" src="@Url.Content("~/Content/Images/bank_logo.jpg")" alt="" />
+                    <a class="navbar-brand" href="/">Bank</a>
+                </a>
+            </div>
+            <!--JDR: Add navbar-right-->
+            <div class="navbar-collapse collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <!--<li>@Html.ActionLink("Home", "Index", "Home")</li>--> <!--JDR: Remove Home tab-->
+                    @if (UserAccount.IsLoggedIn())
+                    {
+                        <li>@Html.ActionLink("Dashboard", "Dashboard", "Account")</li>
+                    }
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Loans", "Index", "Loans")</li> <!--JDR: Add Loans tab-->
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                </ul>
+                <!--JDR: Add icons for navbar-->
+                <ul class="nav-icons navbar-right">
+                    <li>
+                        <a href="@Url.Action("Search", "Home")">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!--JDR: -->
+                <ul class="nav navbar-nav navbar-right">
+                    @if (UserAccount.IsLoggedIn())
+                    {
+                        string CaptionSignOut = "Sign Out (" + UserAccount.Get("Name") + ")";
+                        <li>@Html.ActionLink(CaptionSignOut, "LoggedOut", "Account")</li> <!--JDR: Add Sign Out tab-->
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Sign In", "Login", "Account", new { area = "" }, new { id = "loginLink" })</li> <!--JDR: Add Sign In tab-->
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <!--JDR: Set info for alerts if any-->
+        @if (TempData["AlertMessage"] != null)
+        {
+            <div class="alert alert-@TempData["AlertTag"]">
+                <strong>@TempData["AlertLabel"]</strong> @Html.Raw(TempData["AlertMessage"])
+            </div>
+
+            TempData["AlertMessage"] = null; //JDR: Just in case, thou i think this is destroyed anyways
+        }
+        <!--JDR: Render BODY content-->
+        <div class="render-body">
+            @RenderBody()
+        </div>
+
+        <!--JDR: Render FOOTER content-->
+        <footer class="footer row">
+            <!--<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>-->
+            <!--JDR: About Us-->
+            <div class="col-md-4">
+                <h2>About Us</h2>
+                <div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pellentesque, erat consectetur aliquet ullamcorper, massa ligula pellentesque magna, nec maximus turpis leo vel ante. Suspendisse nec felis vestibulum, viverra justo.
+                </div>
+            </div>
+            <!--JDR: My Account-->
+            <div class="col-md-4">
+                <h2>My Account</h2>
+                <ul class="">
+                    <li>@Html.ActionLink("List", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Group", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Profile", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Language", "Index", "Home")</li>
+                </ul>
+            </div>
+            <!--JDR: Payment-->
+            <div class="col-md-4">
+                <h2>Payment</h2>
+                <div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                </div>
+                <div class="fdic_img">
+                    <img height="45" src="@Url.Content("~/Content/Images/IconFdic.png")" alt="">
+                </div>
+                &copy; Bank @DateTime.Now.Year
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <!-- JDR: Just here to format currenzy, to lazy to downlod library and add to project .... for testing not prod-->
+    <script type="text/javascript" src="http://afarkas.github.io/webshim/js-webshim/minified/polyfiller.js"></script>
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+    <!--JDR: Set jquery for phone mask-->
+    <script type="text/javascript">
+        $(function () {
+            $(".phone").mask("999-999-9999");
+            $(".ssn").mask("999-99-9999");
+            $('[data-toggle="tooltip"]').tooltip();
+
+
+            webshims.setOptions('forms-ext', {
+                replaceUI: 'auto',
+                types: 'number'
+            });
+            webshims.polyfill('forms forms-ext');
+
+            $('.data-table').DataTable();
+        });
+    </script>
+</body>
+</html>

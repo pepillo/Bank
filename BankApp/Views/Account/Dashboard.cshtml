@@ -1,0 +1,140 @@
+﻿@using Bank.Models
+@model Bank.Models.User
+
+@{
+    ViewBag.Title = "Dashboard";
+
+    var Address = Model.GetAddress(true);  //JDR: Get user adress
+    var CreditScore = Model.GetCreditScore(); //JDR: Get CreditScore
+}
+
+<!--JDR: Display Basic user info-->
+<h2 class="bank-header">Dashboard</h2>
+
+<div class="row">
+    <div class="gray-box col-md-6">
+        <a style="color: #333333; font-size:25px;" class="pull-right" href="@Url.Action("Edit", "Account")">
+            <i class="fa fa-edit"></i>
+        </a>
+        <div class="bank-title">User Information</div>
+        <b>@Model.FullName()</b>
+        <br />
+        @Model.Telephone
+        <br />
+        @if (@Address[0] != "") //JDR: Display Address Line 1 if not empty
+        {
+            @Address[0]
+            <br />
+        }
+
+        @if (@Address[1] != "") //JDR: Display Address Line 2 if not empty
+        {
+            @Address[1]
+            <br />
+        }
+
+        @Model.Email
+    </div>
+
+    @{
+        var ScoreWidth = 0;
+        var ScoreColor = "danger";
+        /*
+        if (@CreditScore.TransUnion < 600) { ScoreWidth = 25; ScoreColor = "red"; }
+        else if (@CreditScore.TransUnion < 700) { ScoreWidth = 50; ScoreColor = "yellow"; }
+        else if (@CreditScore.TransUnion < 800) { ScoreWidth = 75; ScoreColor = "green"; }
+        else if (@CreditScore.TransUnion < 850) { ScoreWidth = 100; ScoreColor = "blue"; }
+        */
+    }
+    <div class="col-md-3 text-center">
+        @Html.Partial("_CreditScore", new ViewDataDictionary { { "Company", "TransUnion" }, { "Score", CreditScore.TransUnion } })
+        <!--
+        <div class="bank-title">Trans Union</div>
+        <h2 class="creditScore text-center">@CreditScore.TransUnion</h2>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="background-color:@ScoreColor; width: @ScoreWidth%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        -->
+    </div>
+    <div class="col-md-3 text-center">
+        @Html.Partial("_CreditScore", new ViewDataDictionary { { "Company", "Equifax" }, { "Score", CreditScore.Equifax } })
+        <!--
+        <div class="bank-title">Equifax</div>
+        <h2 class="creditScore text-center">@CreditScore.Equifax</h2>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="background-color:@ScoreColor; width: @ScoreWidth%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        -->
+    </div>
+</div>
+
+<!--JDR: Display Loan Request History-->
+<h3>Request History</h3>
+
+<!--<table class="tabletable-bordered data-table compact table-gray-header">-->
+<table class="table data-table table-gray">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Status</th>
+            <th>Amount</th>
+            <th>Payment</th>
+            <th>Credit Score</th>
+            <th>APR</th>
+            <th>Date</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{var index = 0; }
+
+        @foreach (var LoanRequest in Model.GetLoanRequests())   //JDR: Get all LoanRequest from user
+        {
+            var LoanResult = LoanRequest.GetLoanResults();
+
+            if (LoanResult == null) { continue; }
+
+            var ApproveString = LoanRequest.Status;
+
+            if (LoanRequest.Status != null && LoanRequest.Status.Trim() == "Approved")
+            {
+                ApproveString = "<div style='color:green;'>" + ApproveString + "</div>";
+            }
+            else if (LoanRequest.Status != null && LoanRequest.Status.Trim() == "Denied")
+            {
+                ApproveString = "<div style='color:red;'>" + ApproveString + "</div>";
+            }
+
+            index++;
+
+            <tr>
+                <td>@index</td>
+                <td>@Html.Raw(ApproveString)</td>
+                <td>@string.Format("{0:C2}", (double)LoanRequest.Amount)</td>
+                <td>@string.Format("{0:C2}", LoanResult.MonthlyPayment)</td>
+                <td class="text-center">@LoanResult.CreditScore</td>
+                <td>@string.Format("{0:N2}%", (LoanResult.APR * 100))</td>
+                <td>@String.Format("{0:MM/dd/yyyy}", LoanResult.ResolutionDate)</td>
+                <td>
+                    <div style="white-space: nowrap;overflow:hidden;text-overflow: ellipsis;" data-toggle="tooltip" data-placement="left" title="@LoanResult.Comments">
+                        @LoanResult.Comments
+                    </div>
+                </td>
+            </tr>
+        }
+
+        @if (index == 0)
+        {
+            <tr>
+                <td></td>
+                <td>No Data Available</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>

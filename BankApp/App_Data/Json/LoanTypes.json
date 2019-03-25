@@ -1,0 +1,17 @@
+[
+    {
+        "position": 0,
+        "type": "AL",
+        "description": "Auto Loan"
+    },
+    {
+        "position": 1,
+        "type": "PL",
+        "description": "Personal Loan"
+    },
+    {
+        "position": 2,
+        "type": "HL",
+        "description": "Home Loan"
+    }
+]

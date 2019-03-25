@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<!--JDR: TODO: Actualy setup googlemaps div here for current location-->
+<div class="row">
+    <iframe class="google-maps float-left col-12 col-sm-12 col-md-12 col-lg-12" height="350" id="gmap_canvas" src="https://maps.google.com/maps?q=Dxc%20Isabela&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</div>
+
+<div class="contact-container row vertical-divide">
+    <div class="col-md-8">
+        <div class="bank-header">Our Locations</div>
+
+        <div class="bank-title">Bank, Ink.</div>
+
+        <address>
+            1355 Market  Street, Suit 900<br />
+            San Francisco, CA 94103<br />
+            P: (123) 456-7890
+        </address>
+
+        <div class="bank-title">Bank, Ink.</div>
+
+        <address>
+            689 Industrial Avenue<br />
+            Isabela, PR 00662<br />
+            P: (123) 456-7890
+        </address>
+    </div>
+    <div class="col-md-4">
+        <!--JDR: TODO: Set partial view someplace for contact form-->
+        @Html.Partial("_ContactUsForm")
+    </div>
+</div>
